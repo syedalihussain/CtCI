@@ -38,15 +38,28 @@ public class sumLists2_5 {
 		int unit = sum%10;
 		int carry = (sum>=10) ? 1 : 0;
 		Node node = new Node(unit);
-		if (node1.next == null && node2.next == null)
-			node.next = addLists(null, null, carry);
-		else if (node1.next == null)
-			node.next = addLists(null, node2.next, carry);
-		else if (node2.next == null)
-			node.next = addLists(node1.next, null, carry);
-		else
-			node.next = addLists(node1.next, node2.next, carry);
+		node.next = addLists((node1 == null) ? null : node1.next,
+					(node2 == null) ? null : node2.next, carry);
+		
 		return node;
+//		if (node1 == null && node2 == null) {
+//			return (c == 1) ? new Node(1) : null;
+//		}
+//		int d1 = (node1 == null) ? 0 : node1.data;
+//		int d2 = (node2 == null) ? 0 : node2.data;
+//		int sum = d1 + d2 + c;
+//		int unit = sum%10;
+//		int carry = (sum>=10) ? 1 : 0;
+//		Node node = new Node(unit);
+//		if (node1.next == null && node2.next == null)
+//			node.next = addLists(null, null, carry);
+//		else if (node1.next == null)
+//			node.next = addLists(null, node2.next, carry);
+//		else if (node2.next == null)
+//			node.next = addLists(node1.next, null, carry);
+//		else
+//			node.next = addLists(node1.next, node2.next, carry);
+//		return node;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -60,12 +73,13 @@ public class sumLists2_5 {
 		num2.append(2);
 		Node node = sumLists(num1.head, num2.head);
 		while (node!=null){
-			System.out.println(node.data + " ");
+			System.out.print(node.data + " ");
 			node = node.next;
 		}
+		System.out.println();
 		node = addLists(num1.head, num2.head, 0);
 		while (node!=null){
-			System.out.println(node.data + " ");
+			System.out.print(node.data + " ");
 			node = node.next;
 		}
 		System.out.println();
