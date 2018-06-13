@@ -39,7 +39,7 @@ public class sumLists2_5 {
 		int carry = (sum>=10) ? 1 : 0;
 		Node node = new Node(unit);
 		node.next = addLists((node1 == null) ? null : node1.next,
-					(node2 == null) ? null : node2.next, carry);
+								(node2 == null) ? null : node2.next, carry);
 		
 		return node;
 //		if (node1 == null && node2 == null) {
@@ -64,13 +64,13 @@ public class sumLists2_5 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SingleLinkedList num1 = new SingleLinkedList();
-		num1.append(7);
-		num1.append(1);
-		num1.append(6);
+		num1.append(2);
+		num1.append(4);
+		num1.append(3);
 		SingleLinkedList num2 = new SingleLinkedList();
 		num2.append(5);
-		num2.append(9);
-		num2.append(2);
+		num2.append(6);
+		num2.append(4);
 		Node node = sumLists(num1.head, num2.head);
 		while (node!=null){
 			System.out.print(node.data + " ");
