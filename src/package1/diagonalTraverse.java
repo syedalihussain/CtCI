@@ -3,15 +3,18 @@ package package1;
 public class diagonalTraverse {
 	public static int[] traverse(int[][] matrix){
 		System.out.println(matrix.length);
-		int numRows = matrix[0].length;
-		int numCols = matrix.length;
+		int numRows = matrix.length;
+		int numCols = matrix[0].length;
 		int rnum = 0, cnum = 0;
-		int i=0;
+		int i=-1;
 		boolean direction = true;
 		int[] res = new int[numRows*numCols];
 		while (i!=(numRows*numCols)-1){
-			if (rnum>=0 && cnum>=0){
-				res[i++] = matrix[rnum][cnum];
+//			System.out.println(matrix[rnum][cnum]);
+			if (rnum>=0 && rnum<numRows && cnum>=0 && cnum<numCols){
+				System.out.println("rnum: " + rnum + ", cnum: " + cnum);
+				System.out.println(matrix[rnum][cnum]);
+				res[++i] = matrix[rnum][cnum];
 			}
 			if (direction){
 				rnum--;
@@ -39,7 +42,7 @@ public class diagonalTraverse {
 			}
 		}
 		int[] temp = new int[]{0};
-		return temp;
+		return res;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -49,6 +52,9 @@ public class diagonalTraverse {
 			  				{ 7, 8, 9, 8 }
 							};
 		int[] res = traverse(matrix);
+		for (int i=0; i<res.length; i++){
+			System.out.print(res[i] + " ");
+		}
 	}
 
 }
