@@ -1,44 +1,112 @@
 package package1;
-
+import java.util.*;
+import java.util.stream.Collectors;
 public class spiralMatrix {
-	public static int[] traverse(int[][] matrix){
+	public static List<Integer> traverse(int[][] matrix){
+//		if (matrix.length == 0){
+//			return List<Integer>
+//		}
 		int n = matrix[0].length;
 		int m = matrix.length;
-		int rn = n--;
-		int rm = m--;
+		int rn = n-1;
+		int rm = m-1;
+//		System.out.println(n);
+//		System.out.println(rn);
 		int[] arr = new int[m*n];
 		int c = 0, r = 0;
-		boolean east = true, south = false, west = false, north = false;
+//		boolean east = true, south = false, west = false, north = false;
 		int index = 0;
-		while (){
-			for (int a=c; a<n; a++){
+		while (index<arr.length){
+			for (int a=c; a<=rn; a++){
+				System.out.println("loop1: " + matrix[r][a]);
 				arr[index++] = matrix[r][a];
 			}
-			for (int b=r; b<m; b++){
+			if (index>=arr.length) break;
+			r++;
+			for (int b=r; b<=rm; b++){
 				arr[index++] = matrix[b][rn];
+				System.out.println("loop2: " + matrix[b][rn]);
 			}
-			c++; r++;
-			for (int a=rn; a>c; a--){
-				arr[index++] = matrix[]
+			if (index>=arr.length) break;
+			rn--;
+			for (int a=rn; a>=c; a--){
+				arr[index++] = matrix[rm][a];
+				System.out.println("loop3: " + matrix[rm][a]);
 			}
+			if (index>=arr.length) break;
+			rm--;
+			for (int b=rm; b>=r; b--){
+				arr[index++] = matrix[b][c];
+				System.out.println("loop4: " + matrix[b][c]);
+			}
+			if (index>=arr.length) break;
+			c++;
 		}
-		int[] temp = new int[]{1, 2, 3, 4 };
-		return temp;
+		List<Integer> res = Arrays.stream(arr).boxed().collect(Collectors.toList());
+		return res;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[][] matrix = new int[][]{
-				{ 1, 2, 3, 4 },
-				{ 4, 5, 6, 7 },
-				{ 7, 8, 9, 8 }
+				{ 1 },
+				{ 4 },
+				{ 7 }
 			};
-		int[] res = traverse(matrix);
 		System.out.println(matrix.length);
 		System.out.println(matrix[0].length);
-		System.out.println(matrix[1][3]);
-		for (int i=0; i<res.length; i++){
-			System.out.print(res[i] + " ");
-		}
+//		System.out.println(matrix[0][3]);
+		List<Integer> list3 = traverse(matrix);
+		
+		System.out.println(list3);
 	}
 
 }
+/*
+ * public class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        
+        List<Integer> res = new ArrayList<Integer>();
+        
+        if (matrix.length == 0) {
+            return res;
+        }
+        
+        int rowBegin = 0;
+        int rowEnd = matrix.length-1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length - 1;
+        
+        while (rowBegin <= rowEnd && colBegin <= colEnd) {
+            // Traverse Right
+            for (int j = colBegin; j <= colEnd; j ++) {
+                res.add(matrix[rowBegin][j]);
+            }
+            rowBegin++;
+            
+            // Traverse Down
+            for (int j = rowBegin; j <= rowEnd; j ++) {
+                res.add(matrix[j][colEnd]);
+            }
+            colEnd--;
+            
+            if (rowBegin <= rowEnd) {
+                // Traverse Left
+                for (int j = colEnd; j >= colBegin; j --) {
+                    res.add(matrix[rowEnd][j]);
+                }
+            }
+            rowEnd--;
+            
+            if (colBegin <= colEnd) {
+                // Traver Up
+                for (int j = rowEnd; j >= rowBegin; j --) {
+                    res.add(matrix[j][colBegin]);
+                }
+            }
+            colBegin ++;
+        }
+        
+        return res;
+    }
+}
+*/

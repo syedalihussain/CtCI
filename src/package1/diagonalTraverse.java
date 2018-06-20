@@ -42,6 +42,9 @@ public class diagonalTraverse {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int[] a = new int[0];
+		System.out.println(a);
+		System.out.println();
 		int[][] matrix = new int[][]{
 			  				{ 1, 2, 3, 4 },
 			  				{ 4, 5, 6, 7 },
