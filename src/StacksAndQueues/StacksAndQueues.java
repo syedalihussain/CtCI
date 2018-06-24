@@ -13,9 +13,6 @@ public class StacksAndQueues {
 		for (int i=0; i<4; i++){
 			System.out.println(stack.pop());
 		}
-		Queue<Integer> q = new LinkedList<Integer>();
-		q.add(1);
-		System.out.println(q.poll());
-		System.out.println(q.poll());
+		
 	}
 }

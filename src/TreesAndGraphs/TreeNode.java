@@ -1,14 +1,15 @@
 package TreesAndGraphs;
 
 public class TreeNode {
-	public String name;
-	public TreeNode[] children;
+	int value;
+	TreeNode left, right;
 	
-	public TreeNode(String s){
-		this.name = s;
+	public TreeNode(int value){
+		this.value = value;
+		left = right = null;
 	}
 	
-	public void visit(TreeNode node){
-		System.out.println(name);
+	public void visit(){
+		System.out.println(value);
 	}
 }
