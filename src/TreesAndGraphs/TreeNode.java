@@ -10,6 +10,6 @@ public class TreeNode {
 	}
 	
 	public void visit(){
-		System.out.println(value);
+		System.out.print(value + "-> ");
 	}
 }
