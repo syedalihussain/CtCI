@@ -23,6 +23,15 @@ public class TreesAndGraphs {
 		System.out.println();
 		binarytree.postOrderTraversal(binarytree.root);
 		System.out.println();
+		
+		TreeNode bstroot = new TreeNode(1);
+		for (int i=2; i<=7; i++){
+			bstroot.insert(i);
+		}
+		BinaryTree bst1 = new BinaryTree(bstroot);
+		bst1.preOrderTraversal(bst1.root);
+		System.out.println();
+		System.out.println(bstroot.find(5));
 	}
 
 }

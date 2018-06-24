@@ -13,6 +13,21 @@ public class StacksAndQueues {
 		for (int i=0; i<4; i++){
 			System.out.println(stack.pop());
 		}
+		System.out.println("Testing the minimum stack");
+		StackWithMin minstack = new StackWithMin();
+		minstack.push(3);
+		minstack.push(5);
+		minstack.push(2);
+		minstack.push(1);
 		
+		System.out.println(minstack.min());
+		minstack.pop();
+		System.out.println(minstack.min());
+		minstack.pop();
+		System.out.println(minstack.min());
+		minstack.pop();
+		System.out.println(minstack.min());
+		minstack.pop();
+		System.out.println(minstack.min());
 	}
 }
