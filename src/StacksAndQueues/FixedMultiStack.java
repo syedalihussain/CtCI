@@ -3,6 +3,16 @@ package StacksAndQueues;
 import java.util.EmptyStackException;
 
 public class FixedMultiStack {
+	/*
+	class FullStackException extends Exception
+	{
+	    public FullStackException(String s)
+	    {
+	        // Call constructor of parent Exception
+	        super(s);
+	    }
+	}
+	*/
 	private int numberOfStacks = 3;
 	private int stackCapacity;
 	private int[] values;
@@ -15,7 +25,7 @@ public class FixedMultiStack {
 	}
 	
 	/*	Push value onto stack. */
-	public void push(int stackNum, int value){
+	public void push(int stackNum, int value) {
 		if (isFull(stackNum)) throw new StackOverflowError();
 		values[getTopIndex(stackNum)] = value;
 		sizes[stackNum]++;
