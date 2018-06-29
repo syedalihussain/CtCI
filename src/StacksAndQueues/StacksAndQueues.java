@@ -38,11 +38,41 @@ public class StacksAndQueues {
 		}
 		System.out.println();
 	}
+	public static MyStack<Integer> sortStack(MyStack<Integer> stack){
+		MyStack<Integer> tempStack = new MyStack<Integer>();
+		if (!stack.isEmpty())
+			tempStack.push(stack.pop());
+		else
+			return new MyStack<Integer>();
+		while (!stack.isEmpty()){
+			Integer tempInt = stack.pop();
+			while (!tempStack.isEmpty() && tempStack.peek()>tempInt){
+				stack.push(tempStack.pop());
+			}
+			tempStack.push(tempInt);
+		}
+		
+		return tempStack;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//	testMyStack();
 		//	testMinStack();
-		testQueueFromStacks();
-		//	This is a test comment
+		//	testQueueFromStacks();
+		
+		/*
+		 * Question no 3.5
+		MyStack<Integer> stack = new MyStack<Integer>();
+		stack.push(1);
+		stack.push(12);
+		stack.push(5);
+		stack.push(3);
+		stack.push(8);
+		stack.push(7);
+		MyStack<Integer> sortedStack = sortStack(stack);
+		while(!sortedStack.isEmpty()){
+			System.out.println(sortedStack.pop());
+		}
+		*/
 	}
 }
