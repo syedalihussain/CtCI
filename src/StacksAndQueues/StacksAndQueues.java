@@ -1,6 +1,7 @@
 package StacksAndQueues;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.CancellationException;
 public class StacksAndQueues {
 	public static void testMyStack(){
 		MyStack<Integer> stack = new MyStack<Integer>();
@@ -74,5 +75,16 @@ public class StacksAndQueues {
 			System.out.println(sortedStack.pop());
 		}
 		*/
+		//	Question 3.6
+		AnimalShelter shelter = new AnimalShelter();
+		shelter.enqueue(new Cat("Meow"));
+		shelter.enqueue(new Cat("Purr"));
+		shelter.enqueue(new Dog("Woof"));
+		shelter.enqueue(new Dog("Simba"));
+		
+		System.out.println(shelter.dequeueAny().name);
+		System.out.println(shelter.dequeueDogs().name);
+		System.out.println(shelter.dequeueCats().name);
+		System.out.println(shelter.dequeueAny().name);
 	}
 }
