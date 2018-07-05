@@ -13,6 +13,18 @@ public class SingleLinkedList {
 		}
 		current.next = new Node(d);
 	}
+	
+	public void append(Node n){
+		if (head == null) {
+			head = n;
+			return;
+		}
+		Node current = head;
+		while (current.next != null) {
+			current = current.next;
+		}
+		current.next = n;
+	}
 	public void prepend(int d) {
 		if (head == null) {
 			head = new Node(d);

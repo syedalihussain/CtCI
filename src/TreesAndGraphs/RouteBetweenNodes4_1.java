@@ -8,6 +8,7 @@ public class RouteBetweenNodes4_1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode node = new TreeNode(5);
+		System.out.println(13/2);
 	}
 
 }
