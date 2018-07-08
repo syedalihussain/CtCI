@@ -2,11 +2,11 @@ package TreesAndGraphs;
 enum State {Unvisited, Visited, Visiting;}
 public class TreeNode {
 	int value;
-	TreeNode left, right;
+	TreeNode left, right, parent;
 	State state;
 	public TreeNode(int value){
 		this.value = value;
-		left = right = null;
+		left = right = parent = null;
 		state = State.Unvisited;
 	}
 	
