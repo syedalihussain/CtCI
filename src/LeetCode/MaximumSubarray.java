@@ -8,22 +8,14 @@ public class MaximumSubarray {
 		int largestSum = nums[0];
 		int currentSum = 0;
 		for (int i=0; i<nums.length; i++) {
-			if (nums[i] > largestSum || (nums[i] + currentSum) > largestSum) {
-				if ((currentSum + nums[i]) < nums[i]) {
-					largestSum = nums[i];
-				} else {
-					largestSum = currentSum + nums[i];
-				}
-			} 
-			
-			if ((currentSum + nums[i]) > nums[i]) {
-				currentSum += nums[i];
-			} else {
-				currentSum = nums[i];
+			currentSum += nums[i];
+			if (currentSum > largestSum) {
+				largestSum = currentSum;
+			}
+			if (currentSum < 0) {
+				currentSum = 0;
 			}
 		}
-		
-		
 		return largestSum;
 	}
 
